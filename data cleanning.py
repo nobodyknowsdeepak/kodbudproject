@@ -11,9 +11,9 @@ print("Shape (rows, columns):", df.shape)
 print()
 
 
-# -------------------------------------------------------------------
+
 # STEP 1: First look at the data
-# -------------------------------------------------------------------
+
 
 
 print("STEP 1: Basic info before cleaning")
@@ -24,9 +24,8 @@ print(df.isnull().sum())
 print()
 
 
-# -------------------------------------------------------------------
+
 # STEP 2: Remove duplicate rows
-# -------------------------------------------------------------------
 
 
 before = df.shape[0]
@@ -39,9 +38,9 @@ print("New shape:", df.shape)
 print()
 
 
-# -------------------------------------------------------------------
+
 # STEP 3: Clean up messy text / categorical columns
-# -------------------------------------------------------------------
+
 
 
 def clean_text_column(series):
@@ -135,9 +134,9 @@ print("        case_status, gender columns, reported_online)")
 print()
 
 
-# -------------------------------------------------------------------
+
 # STEP 4: Data type conversion
-# -------------------------------------------------------------------
+
 
 # 4a. property_loss_usd is stored as text and has broken values like
 #     "35446.9.0" (two decimal points). We fix that, then convert to float.
@@ -167,7 +166,7 @@ print(" - numeric columns   -> confirmed as numeric (float)")
 print()
 
 
-# -------------------------------------------------------------------
+
 # STEP 5: Outlier detection and treatment
 
 df.loc[(df["suspect_age"] < 0) | (df["suspect_age"] > 100), "suspect_age"] = np.nan
@@ -199,9 +198,9 @@ print(f" - property_loss_usd        -> {outlier_count} extreme values capped at 
 print()
 
 
-# -------------------------------------------------------------------
+
 # STEP 6: Handle remaining null values
-# -------------------------------------------------------------------
+
 
 
 df["suspect_age"] = df["suspect_age"].fillna(df["suspect_age"].median())
@@ -228,9 +227,9 @@ print(" - incident_datetime / IDs left as-is (cannot guess a missing ID or date)
 print()
 
 
-# -------------------------------------------------------------------
+
 # STEP 7: Final check
-# -------------------------------------------------------------------
+
 print("STEP 7: Data after cleaning")
 print("Shape:", df.shape)
 print()
