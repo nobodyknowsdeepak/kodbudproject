@@ -4,10 +4,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
 
-# Load the dataset (replace 'titanic.csv' with your actual file path)
+
 df = pd.read_csv('C:/Users/Nonu/OneDrive/Desktop/Kodbud Projects/.vscode/tested.csv')
 
-# Display the first few rows
+
 print(df)
 
 
@@ -39,7 +39,6 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 print('Accuracy:', accuracy_score(y_test, y_pred))
 print('Classification Report:\n', classification_report(y_test, y_pred))
-# --- ADDITIONAL VISUALIZATIONS ---
 plt.figure(figsize=(6, 4))
 survival_by_class = df.groupby('Pclass')['Survived'].mean()
 survival_by_class.plot(kind='bar', color='orange')
