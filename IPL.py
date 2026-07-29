@@ -1,11 +1,8 @@
-"""
-IPL Dataset - Exploratory Data Analysis (Simple Version)
-Insights: Most Winning Teams | Top Scorers | Stadium Trends
-"""
+
 
 import pandas as pd
 
-# Show ALL rows and columns — no truncation
+
 pd.set_option("display.max_rows", None)
 pd.set_option("display.max_columns", None)
 pd.set_option("display.width", None)
@@ -15,7 +12,7 @@ import matplotlib.pyplot as plt
 # ---------------------------------------------------------
 # 1. Load the data
 # ---------------------------------------------------------
-# You can change the file name/path here
+
 file_path = "C:/Users/Nonu/OneDrive/Desktop/Kodbud Projects/matches-selected-columns.csv"
 
 df = pd.read_csv(file_path)
