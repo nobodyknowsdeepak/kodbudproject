@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import LabelEncoder
 
-# making my own small dataset since i dont have a csv rn
+
 data = {
     "Job Title": ["Data Analyst", "Data Scientist", "Software Engineer", "Data Analyst",
                   "Manager", "Software Engineer", "Data Scientist", "Manager",
@@ -20,13 +20,13 @@ df = pd.DataFrame(data)
 
 print(df)
 
-# checking if there is any missing data
+
 print(df.isnull().sum())
 
-# just dropping duplicates just in case
+
 df = df.drop_duplicates()
 
-# job title is text so model wont understand it, converting to numbers
+
 le = LabelEncoder()
 df["Job Title"] = le.fit_transform(df["Job Title"])
 
@@ -34,7 +34,7 @@ df["Job Title"] = le.fit_transform(df["Job Title"])
 x = df[["Years of Experience", "Job Title"]]
 y = df["Salary"]
 
-# splitting data, 80 percent train 20 percent test
+
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 # creating the model
